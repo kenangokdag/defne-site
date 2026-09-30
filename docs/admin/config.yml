@@ -1,0 +1,129 @@
+# Yönetim paneli ayarları (Sveltia CMS, Decap CMS ile uyumlu)
+backend:
+  name: github
+  repo: kenangokdag/defne-site   # GitHub kullanıcı adınız farklıysa düzeltin
+  branch: main
+  # base_url: https://OAUTH-ADRESI   # README'deki "Panel girişi" bölümüne bakın
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+site_url: https://kenangokdag.github.io/defne-site
+locale: tr
+
+collections:
+  - name: blog
+    label: Blog yazıları
+    label_singular: Blog yazısı
+    folder: src/blog
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} ({{kategori}})"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Başlık, name: title, widget: string }
+      - { label: Yayın tarihi, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Güncelleme tarihi, name: guncelleme, widget: datetime, format: "YYYY-MM-DD", time_format: false, required: false }
+      - label: Konu
+        name: kategori
+        widget: select
+        options:
+          - "Akdeniz beslenmesi"
+          - "Kilo yönetimi"
+          - "Bağırsak sağlığı"
+          - "Kadın sağlığı"
+          - "Klinik beslenme"
+          - "Mevsim ve mutfak"
+      - { label: "Kısa özet (listelerde ve Google'da görünür, 1-2 cümle)", name: ozet, widget: text }
+      - { label: Kapak görseli, name: kapak, widget: image, required: false }
+      - { label: "Kapak görseli açıklaması (görme engelliler için)", name: kapak_alt, widget: string, required: false }
+      - { label: Yazı, name: body, widget: markdown }
+      - label: Kaynaklar
+        name: kaynaklar
+        widget: list
+        required: false
+        field: { label: Kaynak, name: kaynak, widget: string }
+
+  - name: tarifler
+    label: Tarifler
+    label_singular: Tarif
+    folder: src/tarifler
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Tarif adı, name: title, widget: string }
+      - { label: Tarih, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Kısa açıklama, name: ozet, widget: text }
+      - { label: Görsel, name: kapak, widget: image, required: false }
+      - { label: Görsel açıklaması, name: kapak_alt, widget: string, required: false }
+      - { label: "Süre (dakika)", name: sure, widget: number, value_type: int }
+      - { label: Porsiyon, name: porsiyon, widget: number, value_type: int }
+      - label: Malzemeler
+        name: malzemeler
+        widget: list
+        field: { label: Malzeme, name: malzeme, widget: string }
+      - label: Hazırlanış adımları
+        name: adimlar
+        widget: list
+        field: { label: Adım, name: adim, widget: text }
+      - { label: Diyetisyen notu, name: body, widget: markdown, required: false }
+
+  - name: ayarlar
+    label: Site ayarları
+    files:
+      - name: site
+        label: İletişim ve hakkımda
+        file: src/_data/site.json
+        fields:
+          - { label: Ad soyad, name: ad, widget: string }
+          - { label: Unvan, name: unvan, widget: string }
+          - { label: Kısa unvan, name: kisaUnvan, widget: string }
+          - { label: Site adresi, name: url, widget: string }
+          - { label: Telefon (görünen), name: telefon, widget: string }
+          - { label: "WhatsApp numarası (başında 90, boşluksuz)", name: whatsapp, widget: string }
+          - { label: WhatsApp hazır mesajı, name: whatsappMesaj, widget: text }
+          - { label: E-posta, name: eposta, widget: string }
+          - { label: Adres, name: adres, widget: string }
+          - { label: Google Haritalar linki, name: haritaLinki, widget: string }
+          - { label: Çalışma saatleri, name: calismaSaatleri, widget: string }
+          - { label: Instagram linki, name: instagram, widget: string }
+          - { label: "Form adresi (Formspree vb., boşsa form gizlenir)", name: formAdresi, widget: string, required: false }
+          - { label: Online danışmanlık veriliyor, name: onlineDanismanlik, widget: boolean }
+          - { label: "Site açıklaması (Google için)", name: aciklama, widget: text }
+          - { label: Portre fotoğrafı, name: portre, widget: image, required: false }
+          - label: Hakkımda paragrafları
+            name: hakkimda
+            widget: list
+            field: { label: Paragraf, name: paragraf, widget: text }
+          - label: Eğitim
+            name: egitim
+            widget: list
+            fields:
+              - { label: Yıl, name: yil, widget: string }
+              - { label: Program, name: baslik, widget: string }
+              - { label: Kurum, name: kurum, widget: string }
+          - label: Akademik çalışmalar
+            name: akademik
+            widget: list
+            fields:
+              - { label: Başlık, name: baslik, widget: string }
+              - { label: Detay, name: detay, widget: string }
+      - name: hizmetler
+        label: Hizmetler
+        file: src/_data/hizmetler.json
+        fields:
+          - label: Hizmetler
+            name: liste
+            widget: list
+            fields:
+              - { label: Başlık, name: baslik, widget: string }
+              - { label: Açıklama, name: metin, widget: text }
+      - name: sss
+        label: Sık sorulan sorular
+        file: src/_data/sss.json
+        fields:
+          - label: Sorular
+            name: sorular
+            widget: list
+            fields:
+              - { label: Soru, name: soru, widget: string }
+              - { label: Cevap, name: cevap, widget: text }

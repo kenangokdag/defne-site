@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="tr">
+  <title>Dyt. Defne Duru Yılmaz | Blog</title>
+  <subtitle>Diyetisyen ve hemşire Defne Duru Yılmaz: bireysel ve online beslenme danışmanlığı, Akdeniz mutfağından ilham alan sürdürülebilir beslenme planları, blog ve sağlıklı tarifler.</subtitle>
+  <link href="https://kenangokdag.github.io/defne-site/feed.xml" rel="self"/>
+  <link href="https://kenangokdag.github.io/defne-site/"/>
+  <id>https://kenangokdag.github.io/defne-site/</id>
+  <updated>2026-09-15T00:00:00.000Z</updated>
+  <author><name>Defne Duru Yılmaz</name></author>
+  <entry>
+    <title>Akdeniz diyeti bir liste değil, bir sofra düzeni</title>
+    <link href="https://kenangokdag.github.io/defne-site/blog/akdeniz-diyeti-bir-liste-degil/"/>
+    <id>https://kenangokdag.github.io/defne-site/blog/akdeniz-diyeti-bir-liste-degil/</id>
+    <updated>2026-09-15T00:00:00Z</updated>
+    <summary>Akdeniz diyeti çoğu zaman bir besin listesine indirgeniyor. Oysa araştırmalarda sağlıkla ilişkilendirilen şey, tek tek besinlerden çok bir bütün olarak beslenme düzeni.</summary>
+  </entry>
+  <entry>
+    <title>Lif ve bağırsak sağlığı: nereden başlamalı?</title>
+    <link href="https://kenangokdag.github.io/defne-site/blog/lif-ve-bagirsak/"/>
+    <id>https://kenangokdag.github.io/defne-site/blog/lif-ve-bagirsak/</id>
+    <updated>2026-09-02T00:00:00Z</updated>
+    <summary>Posa olarak da bilinen diyet lifi, bağırsak sağlığının temel yapı taşlarından biri. Lif alımını artırırken dikkat edilmesi gerekenleri derledim.</summary>
+  </entry>
+  <entry>
+    <title>Sonbahar sofrası: mevsim ürünleriyle çeşitlilik</title>
+    <link href="https://kenangokdag.github.io/defne-site/blog/sonbahar-sofrasi/"/>
+    <id>https://kenangokdag.github.io/defne-site/blog/sonbahar-sofrasi/</id>
+    <updated>2026-08-20T00:00:00Z</updated>
+    <summary>Sonbahar, pazar tezgâhlarının en renkli olduğu dönem. Mevsim ürünlerini sofraya taşımanın pratik yollarını paylaşıyorum.</summary>
+  </entry>
+</feed>
