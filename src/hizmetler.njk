@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Hizmetler
+ozet: Bireysel ve online beslenme danışmanlığı, kilo yönetimi, gebelik ve emzirme dönemi, kronik hastalıklarda beslenme desteği ve bağırsak sağlığı.
+---
+<section class="sayfa-bas kap">
+  <h1>Hizmetler</h1>
+  <p class="sayfa-bas__giris">Tüm danışmanlıklar kişisel bir değerlendirmeyle başlar ve düzenli takiple sürer.{% if site.onlineDanismanlik %} Görüşmeler yüz yüze veya online yapılabilir.{% endif %}</p>
+</section>
+<section class="kap">
+  <ul class="hizmet-listesi hizmet-listesi--genis">
+    {% for h in hizmetler.liste %}<li><h2>{{ h.baslik }}</h2><p>{{ h.metin }}</p></li>{% endfor %}
+  </ul>
+  <p class="kucuk-not">Beslenme danışmanlığı tıbbi tanı ve tedavinin yerine geçmez. Kronik bir hastalığınız varsa plan, hekiminizin önerileriyle uyumlu olarak hazırlanır.</p>
+</section>
+<section class="surec">
+  <div class="kap">
+    <h2 class="bolum__baslik">Süreç nasıl işler?</h2>
+    <ol class="surec__adimlar">
+      <li><h3>Ön görüşme</h3><p>Beklentilerinizi dinliyor, danışmanlık sürecini ve görüşme düzenini anlatıyorum.</p></li>
+      <li><h3>Değerlendirme</h3><p>Ölçümler, tahliller, beslenme alışkanlıkları ve günlük rutininiz birlikte ele alınır.</p></li>
+      <li><h3>Kişisel plan</h3><p>Size uygun öğün düzeni, besin seçimleri ve pratik önerilerden oluşan plan hazırlanır.</p></li>
+      <li><h3>Takip</h3><p>Düzenli görüşmelerle ilerleyişinizi değerlendirir, planı ihtiyaçlarınıza göre güncelleriz.</p></li>
+    </ol>
+  </div>
+</section>
+{% include "iletisim-bant.njk" %}

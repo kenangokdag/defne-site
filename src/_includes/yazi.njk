@@ -1,0 +1,54 @@
+---
+layout: base.njk
+bodyClass: sayfa-yazi
+---
+{% set okuma = content | okumaSuresi %}
+<article class="yazi">
+  <header class="yazi__bas kap-dar">
+    <p class="yazi__yol"><a href="/blog/">Blog</a> <span aria-hidden="true">/</span> <a href="/blog/konu/{{ kategori | trSlug }}/">{{ kategori }}</a></p>
+    <h1>{{ title }}</h1>
+    <p class="yazi__ozet">{{ ozet }}</p>
+    <p class="yazi__meta">{{ site.kisaUnvan }} {{ site.ad }}, <time datetime="{{ page.date | isoTarih }}">{{ page.date | trTarih }}</time>{% if guncelleme %}, güncellendi: <time datetime="{{ guncelleme | isoTarih }}">{{ guncelleme | trTarih }}</time>{% endif %}. Okuma süresi {{ okuma }} dakika.</p>
+  </header>
+  {% if kapak %}<figure class="yazi__kapak kap"><img src="{{ kapak }}" alt="{{ kapak_alt or '' }}" loading="eager" fetchpriority="high" sizes="(max-width: 1200px) 100vw, 1200px"></figure>{% endif %}
+  <div class="yazi__govde kap-dar metin">
+    {{ content | safe }}
+    {% if kaynaklar and kaynaklar.length %}
+    <section class="kaynaklar" aria-labelledby="kaynaklar-b">
+      <h2 id="kaynaklar-b">Kaynaklar</h2>
+      <ol>{% for kn in kaynaklar %}<li>{{ kn }}</li>{% endfor %}</ol>
+    </section>
+    {% endif %}
+    <aside class="yazar">
+      <div class="yazar__kemer" aria-hidden="true"></div>
+      <div>
+        <p class="yazar__ad">{{ site.kisaUnvan }} {{ site.ad }}</p>
+        <p>{{ site.unvan }}. Klinik hemşirelik deneyimini beslenme danışmanlığıyla birleştiriyor; Akdeniz beslenme modeli üzerine akademik çalışmalar yürütüyor.</p>
+        <p class="yazar__not">Bu yazı genel bilgilendirme amaçlıdır. Size özel bir değerlendirme için <a href="/randevu/">iletişime geçebilirsiniz</a>.</p>
+      </div>
+    </aside>
+  </div>
+</article>
+{% set ilgili = collections.yazilar | haric(page.url) | ayniKategori(kategori) | limit(2) %}
+{% if not ilgili.length %}{% set ilgili = collections.yazilar | haric(page.url) | limit(2) %}{% endif %}
+{% if ilgili.length %}
+<section class="bolum kap">
+  <h2 class="bolum__baslik">Bunları da okuyabilirsiniz</h2>
+  <div class="kartlar">
+  {% for y in ilgili %}{% include "kart-yazi.njk" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ title | json | safe }},
+  "description": {{ ozet | json | safe }},
+  "datePublished": "{{ page.date | isoTarih }}",
+  "dateModified": "{{ (guncelleme or page.date) | isoTarih }}",
+  {% if kapak %}"image": ["{{ site.url }}{{ kapak }}"],{% endif %}
+  "author": {"@type": "Person", "name": {{ site.ad | json | safe }}, "jobTitle": {{ site.unvan | json | safe }}, "url": "{{ site.url }}/hakkimda/"},
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+}
+</script>

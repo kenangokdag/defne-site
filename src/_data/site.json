@@ -1,0 +1,46 @@
+{
+  "ad": "Defne Duru Yılmaz",
+  "unvan": "Diyetisyen ve Hemşire",
+  "kisaUnvan": "Dyt.",
+  "url": "https://kenangokdag.github.io/defne-site",
+  "telefon": "0 5XX XXX XX XX",
+  "whatsapp": "905XXXXXXXXX",
+  "whatsappMesaj": "Merhaba Defne Hanım, beslenme danışmanlığı randevusu hakkında bilgi almak istiyorum.",
+  "eposta": "iletisim@defneduruyilmaz.com",
+  "adres": "Mahalle, Cadde No:0, İlçe / İl",
+  "haritaLinki": "https://maps.google.com",
+  "calismaSaatleri": "Hafta içi 09.00–18.00, Cumartesi 10.00–14.00",
+  "instagram": "https://www.instagram.com/",
+  "onlineDanismanlik": true,
+  "aciklama": "Diyetisyen ve hemşire Defne Duru Yılmaz: bireysel ve online beslenme danışmanlığı, Akdeniz mutfağından ilham alan sürdürülebilir beslenme planları, blog ve sağlıklı tarifler.",
+  "portre": "",
+  "hakkimda": [
+    "Sağlık alanındaki yolculuğuma hemşire olarak başladım. Hasta başında geçen yıllar, beslenmenin tedavi sürecini ve günlük yaşam kalitesini ne kadar etkilediğini yakından görmemi sağladı. Bu deneyim beni beslenme ve diyetetik alanına yöneltti.",
+    "Bugün danışanlarımla çalışırken iki mesleğin bakış açısını birleştiriyorum: bir yanda tahlil sonuçlarını, ilaç kullanımını ve sağlık geçmişini dikkatle değerlendiren klinik bir gözle, diğer yanda insanın sofrasına, alışkanlıklarına ve hayat temposuna saygı duyan bir yaklaşımla.",
+    "Akademik olarak Akdeniz beslenme modeli üzerine çalışıyorum. Bu modelin sağlıkla ilişkisini inceleyen araştırmaları takip ediyor, bilimsel bulguları günlük hayata uygulanabilir önerilere dönüştürmeye özen gösteriyorum."
+  ],
+  "egitim": [
+    {
+      "yil": "20XX",
+      "baslik": "Beslenme ve Diyetetik Lisans",
+      "kurum": "Üniversite adı"
+    },
+    {
+      "yil": "20XX",
+      "baslik": "Hemşirelik Lisans",
+      "kurum": "Üniversite adı"
+    },
+    {
+      "yil": "20XX",
+      "baslik": "Sertifika veya yüksek lisans programı",
+      "kurum": "Kurum adı"
+    }
+  ],
+  "akademik": [
+    {
+      "baslik": "Akdeniz Diyetine Uyum Konusundaki Araştırmaların Bibliyometrik Analizi",
+      "detay": "Ortak yazarlı çalışma, yayın sürecinde"
+    }
+  ],
+  "formAdresi": ""
+}

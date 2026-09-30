@@ -1,0 +1,44 @@
+---
+layout: base.njk
+bodyClass: sayfa-tarif
+---
+<article class="tarif kap">
+  <div class="tarif__bas">
+    <div>
+      <p class="yazi__yol"><a href="/tarifler/">Tarifler</a></p>
+      <h1>{{ title }}</h1>
+      <p class="yazi__ozet">{{ ozet }}</p>
+      <dl class="tarif__bilgi">
+        <div><dt>Hazırlık ve pişirme</dt><dd>{{ sure }} dakika</dd></div>
+        <div><dt>Porsiyon</dt><dd>{{ porsiyon }}</dd></div>
+      </dl>
+    </div>
+    <figure class="tarif__gorsel">{% set k = {src: kapak, alt: kapak_alt, baslik: title} %}{% include "kapak.njk" %}</figure>
+  </div>
+  <div class="tarif__govde">
+    <section class="tarif__malzeme">
+      <h2>Malzemeler</h2>
+      <ul>{% for m in malzemeler %}<li>{{ m }}</li>{% endfor %}</ul>
+    </section>
+    <section class="tarif__adim metin">
+      <h2>Hazırlanışı</h2>
+      <ol>{% for a in adimlar %}<li>{{ a }}</li>{% endfor %}</ol>
+      {% if content | striptags | trim %}<div class="tarif__not"><h3>Diyetisyen notu</h3>{{ content | safe }}</div>{% endif %}
+    </section>
+  </div>
+</article>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": {{ title | json | safe }},
+  "description": {{ ozet | json | safe }},
+  "author": {"@type": "Person", "name": {{ site.ad | json | safe }}},
+  "datePublished": "{{ page.date | isoTarih }}",
+  {% if kapak %}"image": ["{{ site.url }}{{ kapak }}"],{% endif %}
+  "totalTime": "PT{{ sure }}M",
+  "recipeYield": "{{ porsiyon }} porsiyon",
+  "recipeIngredient": {{ malzemeler | json | safe }},
+  "recipeInstructions": [{% for a in adimlar %}{"@type": "HowToStep", "text": {{ a | json | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]
+}
+</script>

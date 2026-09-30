@@ -1,0 +1,12 @@
+<section class="bant">
+  <div class="kap bant__ic">
+    <div>
+      <h2>Randevu ve bilgi için</h2>
+      <p>{{ site.calismaSaatleri }}. Mesajlarınıza çalışma saatleri içinde dönüş yapılır.</p>
+    </div>
+    <div class="dugmeler">
+      <a class="dugme dugme--acik" href="https://wa.me/{{ site.whatsapp }}?text={{ site.whatsappMesaj | urlenc }}" rel="noopener" target="_blank">WhatsApp ile yazın</a>
+      <a class="dugme dugme--cizgi" href="tel:{{ site.telefon | tel }}">{{ site.telefon }}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Sık sorulan sorular
+ozet: Beslenme danışmanlığı süreci, görüşmeler, online danışmanlık ve randevular hakkında sık sorulan sorular.
+permalink: /sss/
+---
+<section class="sayfa-bas kap">
+  <h1>Sık sorulan sorular</h1>
+  <p class="sayfa-bas__giris">Aradığınız cevabı bulamazsanız <a href="/randevu/">iletişim sayfasından</a> yazabilirsiniz.</p>
+</section>
+<section class="kap-dar sss">
+  {% for s in sss.sorular %}
+  <details class="sss__oge"{% if loop.first %} open{% endif %}>
+    <summary>{{ s.soru }}</summary>
+    <p>{{ s.cevap }}</p>
+  </details>
+  {% endfor %}
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for s in sss.sorular %}{"@type":"Question","name":{{ s.soru | json | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ s.cevap | json | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}
+</script>
+{% include "iletisim-bant.njk" %}

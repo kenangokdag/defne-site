@@ -1,0 +1,1 @@
+{ "layout": "tarif.njk", "permalink": "/tarifler/{{ page.fileSlug }}/" }

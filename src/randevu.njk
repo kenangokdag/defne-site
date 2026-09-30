@@ -1,0 +1,47 @@
+---
+layout: base.njk
+title: Randevu ve iletişim
+ozet: Beslenme danışmanlığı randevusu için WhatsApp, telefon veya iletişim formu üzerinden ulaşabilirsiniz.
+permalink: /randevu/
+---
+<section class="sayfa-bas kap">
+  <h1>Randevu ve iletişim</h1>
+  <p class="sayfa-bas__giris">Randevu için en hızlı yol WhatsApp'tır.{% if site.formAdresi %} Dilerseniz formu doldurabilirsiniz;{% else %} Telefon veya e-postayla da ulaşabilirsiniz;{% endif %} size çalışma saatleri içinde dönüş yapılır.</p>
+</section>
+<section class="kap randevu">
+  <div class="randevu__kanallar">
+    <a class="kanal" href="https://wa.me/{{ site.whatsapp }}?text={{ site.whatsappMesaj | urlenc }}" rel="noopener" target="_blank">
+      <span class="kanal__ad">WhatsApp</span><span class="kanal__deger">Mesaj gönderin</span>
+    </a>
+    <a class="kanal" href="tel:{{ site.telefon | tel }}"><span class="kanal__ad">Telefon</span><span class="kanal__deger">{{ site.telefon }}</span></a>
+    <a class="kanal" href="mailto:{{ site.eposta }}"><span class="kanal__ad">E-posta</span><span class="kanal__deger">{{ site.eposta }}</span></a>
+    <a class="kanal" href="{{ site.haritaLinki }}" rel="noopener" target="_blank"><span class="kanal__ad">Adres</span><span class="kanal__deger">{{ site.adres }}</span></a>
+    <p class="kucuk-not">{{ site.calismaSaatleri }}{% if site.onlineDanismanlik %}. Online görüşme seçeneği vardır{% endif %}.</p>
+  </div>
+  {% if site.formAdresi %}
+  <form class="form" name="randevu" method="POST" action="{{ site.formAdresi }}">
+    <input type="hidden" name="_next" value="{{ site.url }}/tesekkurler/">
+    <p hidden><label>Bu alanı boş bırakın <input name="_gotcha"></label></p>
+    <div class="form__satir">
+      <label for="f-ad">Ad soyad</label>
+      <input id="f-ad" name="ad" autocomplete="name" required>
+    </div>
+    <div class="form__satir">
+      <label for="f-tel">Telefon</label>
+      <input id="f-tel" name="telefon" type="tel" autocomplete="tel" required>
+    </div>
+    <fieldset class="form__satir">
+      <legend>Görüşme tercihi</legend>
+      <label class="secim"><input type="radio" name="tercih" value="Yüz yüze" checked> Yüz yüze</label>
+      {% if site.onlineDanismanlik %}<label class="secim"><input type="radio" name="tercih" value="Online"> Online</label>{% endif %}
+    </fieldset>
+    <div class="form__satir">
+      <label for="f-not">Mesajınız <span class="istege-bagli">(isteğe bağlı)</span></label>
+      <textarea id="f-not" name="mesaj" rows="4" aria-describedby="f-not-ipucu"></textarea>
+      <p id="f-not-ipucu" class="ipucu">Lütfen hastalık, ilaç veya tahlil gibi sağlık bilgilerinizi bu forma yazmayın; bunları görüşmede konuşuruz.</p>
+    </div>
+    <label class="secim secim--onay"><input type="checkbox" name="kvkk" required> <span><a href="/kvkk/" target="_blank">KVKK aydınlatma metnini</a> okudum; iletişim bilgilerimin randevu amacıyla işlenmesini kabul ediyorum.</span></label>
+    <button class="dugme" type="submit">Formu gönder</button>
+  </form>
+  {% endif %}
+</section>

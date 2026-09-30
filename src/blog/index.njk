@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Blog
+ozet: Beslenme, Akdeniz mutfağı, bağırsak sağlığı ve klinik beslenme üzerine kaynak gösterilen bilgilendirici yazılar.
+pagination:
+  data: collections.yazilar
+  size: 12
+  alias: yazilar
+permalink: "/blog/{% if pagination.pageNumber > 0 %}sayfa/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+<section class="sayfa-bas kap">
+  <h1>Blog{% if pagination.pageNumber > 0 %} <span class="sayfa-no">sayfa {{ pagination.pageNumber + 1 }}</span>{% endif %}</h1>
+  <p class="sayfa-bas__giris">Araştırmalara dayanan, günlük hayata uyarlanabilir beslenme yazıları. Her yazının sonunda kaynaklarını bulabilirsiniz.</p>
+</section>
+<section class="kap">
+  {% set aktifKonu = "" %}{% include "konu-menu.njk" %}
+  <div data-arama-hedef>
+    <div class="kartlar">{% for y in yazilar %}{% include "kart-yazi.njk" %}{% endfor %}</div>
+    {% if pagination.pages.length > 1 %}
+    <nav class="sayfalama" aria-label="Blog sayfaları">
+      {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Önceki sayfa</a>{% endif %}
+      <span>{{ pagination.pageNumber + 1 }} / {{ pagination.pages.length }}</span>
+      {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Sonraki sayfa</a>{% endif %}
+    </nav>
+    {% endif %}
+  </div>
+</section>

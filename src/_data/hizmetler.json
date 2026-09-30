@@ -1,0 +1,10 @@
+{
+  "liste": [
+    { "baslik": "Bireysel beslenme danışmanlığı", "metin": "Alışkanlıklarınız, tahlil sonuçlarınız ve günlük ritminiz birlikte değerlendirilerek size özel bir beslenme planı hazırlanır." },
+    { "baslik": "Online beslenme danışmanlığı", "metin": "Görüşmeler görüntülü olarak yapılır; plan ve takip notları dijital olarak paylaşılır. Süreç yüz yüze danışmanlıkla aynı şekilde yürür." },
+    { "baslik": "Kilo yönetimi", "metin": "Kısa süreli kısıtlamalar yerine günlük hayata uyan, sürdürülebilir bir düzen kurmaya odaklanılır." },
+    { "baslik": "Gebelik ve emzirme dönemi", "metin": "Anne ve bebeğin ihtiyaçları gözetilerek dönemin değişen gereksinimlerine uygun beslenme planlaması yapılır." },
+    { "baslik": "Kronik hastalıklarda beslenme desteği", "metin": "Diyabet, hipertansiyon ve yüksek kolesterol gibi durumlarda, hekiminizin tedavisini destekleyen beslenme düzenlemesi yapılır." },
+    { "baslik": "Bağırsak sağlığı", "metin": "Sindirim şikâyetlerinde besin çeşitliliği, lif alımı ve öğün düzeni üzerine kişisel bir yol haritası çıkarılır." }
+  ]
+}

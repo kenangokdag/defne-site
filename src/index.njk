@@ -1,0 +1,114 @@
+---
+layout: base.njk
+bodyClass: sayfa-ana
+---
+<section class="kahraman kap">
+  <div class="kahraman__metin">
+    <p class="kahraman__ust">{{ site.unvan }}</p>
+    <h1 class="kahraman__baslik">Akdeniz sofrasının sadeliği, klinik bilginin&nbsp;dikkati.</h1>
+    <p class="kahraman__giris">Beslenme planınızı alışkanlıklarınız, sağlık geçmişiniz ve günlük ritminiz üzerine birlikte kuruyoruz. Görüşmeler {{ "yüz yüze ve online olarak" if site.onlineDanismanlik else "yüz yüze" }} yapılır.</p>
+    <div class="dugmeler">
+      <a class="dugme" href="/randevu/">Randevu bilgisi al</a>
+      <a class="dugme dugme--sade" href="/hakkimda/">Yaklaşımımı tanıyın</a>
+    </div>
+  </div>
+  <div class="kahraman__gorsel">
+    <div class="kemer">{% if site.portre %}<img src="{{ site.portre }}" alt="{{ site.ad }}">{% else %}{% include "incir.njk" %}{% endif %}</div>
+    <p class="kahraman__imza">{{ site.kisaUnvan }} {{ site.ad }}</p>
+  </div>
+</section>
+
+<section class="ilkeler">
+  <div class="kap ilkeler__ic">
+    <div class="ilke">
+      <h2>Klinik bir gözle</h2>
+      <p>Hemşirelik deneyimi sayesinde tahlil sonuçlarınızı, kullandığınız ilaçları ve sağlık geçmişinizi beslenme planının merkezine alıyorum.</p>
+    </div>
+    <div class="ilke">
+      <h2>Akdeniz mutfağından ilhamla</h2>
+      <p>Zeytinyağı, sebze, baklagil ve mevsim ürünleriyle kurulan, araştırmalarla desteklenen bir beslenme modelini sofranıza uyarlıyoruz.</p>
+    </div>
+    <div class="ilke">
+      <h2>Size uyan bir düzen</h2>
+      <p>Yasak listeleri yerine işinize, ailenize ve damak tadınıza uyan, uzun vadede sürdürebileceğiniz bir plan hazırlıyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bolum kap hizmet-ozet">
+  <div class="bolum__yan">
+    <h2 class="bolum__baslik">Danışmanlık alanları</h2>
+    <p>Her görüşme kişisel bir değerlendirmeyle başlar. Plan, hedefinize ve sağlık durumunuza göre şekillenir.</p>
+    <a class="metin-link" href="/hizmetler/">Tüm hizmetler</a>
+  </div>
+  <ul class="hizmet-listesi">
+    {% for h in hizmetler.liste %}<li><h3>{{ h.baslik }}</h3><p>{{ h.metin }}</p></li>{% endfor %}
+  </ul>
+</section>
+
+<section class="surec">
+  <div class="kap">
+    <h2 class="bolum__baslik">Süreç nasıl işler?</h2>
+    <ol class="surec__adimlar">
+      <li><h3>Ön görüşme</h3><p>Beklentilerinizi dinliyor, danışmanlık sürecini ve görüşme düzenini anlatıyorum.</p></li>
+      <li><h3>Değerlendirme</h3><p>Ölçümler, tahliller, beslenme alışkanlıkları ve günlük rutininiz birlikte ele alınır.</p></li>
+      <li><h3>Kişisel plan</h3><p>Size uygun öğün düzeni, besin seçimleri ve pratik önerilerden oluşan plan hazırlanır.</p></li>
+      <li><h3>Takip</h3><p>Düzenli görüşmelerle ilerleyişinizi değerlendirir, planı ihtiyaçlarınıza göre güncelleriz.</p></li>
+    </ol>
+  </div>
+</section>
+
+{% set sonYazilar = collections.yazilar | limit(3) %}
+{% if sonYazilar.length %}
+<section class="bolum kap">
+  <div class="bolum__ust">
+    <h2 class="bolum__baslik">Blogdan son yazılar</h2>
+    <a class="metin-link" href="/blog/">Tüm yazılar</a>
+  </div>
+  <div class="kartlar">{% for y in sonYazilar %}{% include "kart-yazi.njk" %}{% endfor %}</div>
+</section>
+{% endif %}
+
+{% set sonTarifler = collections.tarifler | limit(3) %}
+{% if sonTarifler.length %}
+<section class="bolum bolum--tarif">
+  <div class="kap">
+    <div class="bolum__ust">
+      <h2 class="bolum__baslik">Mutfaktan</h2>
+      <a class="metin-link" href="/tarifler/">Tüm tarifler</a>
+    </div>
+    <div class="kartlar">{% for t in sonTarifler %}{% include "kart-tarif.njk" %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+{% include "iletisim-bant.njk" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#kisi",
+      "name": {{ site.ad | json | safe }},
+      "jobTitle": {{ site.unvan | json | safe }},
+      "url": "{{ site.url }}/hakkimda/",
+      {% if site.portre %}"image": "{{ site.url }}{{ site.portre }}",{% endif %}
+      "sameAs": ["{{ site.instagram }}"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "{{ site.url }}/#hizmet",
+      "name": "{{ site.kisaUnvan }} {{ site.ad }}",
+      "description": {{ site.aciklama | json | safe }},
+      "url": "{{ site.url }}/",
+      "telephone": {{ site.telefon | json | safe }},
+      "email": {{ site.eposta | json | safe }},
+      "address": {"@type": "PostalAddress", "streetAddress": {{ site.adres | json | safe }}, "addressCountry": "TR"},
+      "founder": {"@id": "{{ site.url }}/#kisi"},
+      "image": "{{ site.url }}/assets/img/paylasim.png"
+    }
+  ]
+}
+</script>

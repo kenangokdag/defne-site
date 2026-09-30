@@ -1,0 +1,11 @@
+<div class="blog-arac">
+  <nav class="suzgec" aria-label="Konular">
+    <a class="suzgec__dugme" href="/blog/" {% if not aktifKonu %}aria-current="page"{% endif %}>Tümü</a>
+    {% for k in kategoriler %}{% if collections.yazilar | ayniKategori(k) | length %}<a class="suzgec__dugme" href="/blog/konu/{{ k | trSlug }}/" {% if aktifKonu == k %}aria-current="page"{% endif %}>{{ k }}</a>{% endif %}{% endfor %}
+  </nav>
+  <div class="arama">
+    <label for="arama-kutu" class="gizli">Yazılarda ara</label>
+    <input id="arama-kutu" type="search" placeholder="Yazılarda ara" autocomplete="off">
+  </div>
+</div>
+<div class="arama-sonuc" aria-live="polite" hidden></div>

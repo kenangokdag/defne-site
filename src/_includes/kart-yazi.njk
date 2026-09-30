@@ -1,0 +1,9 @@
+<article class="kart" data-konu="{{ y.data.kategori }}">
+  <a class="kart__link" href="{{ y.url }}">
+    <div class="kart__gorsel">{% set k = {src: y.data.kapak, alt: y.data.kapak_alt, baslik: y.data.title} %}{% include "kapak.njk" %}</div>
+    <p class="kart__konu">{{ y.data.kategori }}</p>
+    <h3 class="kart__baslik">{{ y.data.title }}</h3>
+    <p class="kart__ozet">{{ y.data.ozet }}</p>
+    <p class="kart__tarih"><time datetime="{{ y.date | isoTarih }}">{{ y.date | trTarih }}</time></p>
+  </a>
+</article>

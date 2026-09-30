@@ -1,0 +1,2 @@
+{# kullanım: set k = {src, alt, baslik} #}
+{% if k.src %}<img src="{{ k.src }}" alt="{{ k.alt or '' }}" loading="lazy" decoding="async">{% else %}<span class="kapak-bos" aria-hidden="true"><span>{{ k.baslik | first }}</span></span>{% endif %}

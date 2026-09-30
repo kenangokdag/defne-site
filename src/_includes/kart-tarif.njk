@@ -1,0 +1,7 @@
+<article class="kart kart--tarif">
+  <a class="kart__link" href="{{ t.url }}">
+    <div class="kart__gorsel kart__gorsel--kemer">{% set k = {src: t.data.kapak, alt: t.data.kapak_alt, baslik: t.data.title} %}{% include "kapak.njk" %}</div>
+    <h3 class="kart__baslik">{{ t.data.title }}</h3>
+    <p class="kart__ozet">{{ t.data.sure }} dakika, {{ t.data.porsiyon }} porsiyon</p>
+  </a>
+</article>

@@ -1,0 +1,10 @@
+{
+  "sorular": [
+    { "soru": "İlk görüşmede neler yapılıyor?", "cevap": "Beslenme alışkanlıklarınız, sağlık geçmişiniz, varsa tahlil sonuçlarınız ve günlük rutininiz konuşulur. Gerekli ölçümler alınır ve hedefleriniz birlikte belirlenir. İlk görüşme yaklaşık 45–60 dakika sürer." },
+    { "soru": "Görüşmeye gelirken yanımda ne getirmeliyim?", "cevap": "Son altı ay içinde yapılmış kan tahlilleriniz, kullandığınız ilaçların listesi ve mümkünse birkaç günlük yemek notlarınız süreci kolaylaştırır." },
+    { "soru": "Online danışmanlık yüz yüze danışmanlıktan farklı mı?", "cevap": "İçerik ve takip süreci aynıdır. Görüşmeler görüntülü yapılır; ölçümler için size evde nasıl ölçüm yapacağınız anlatılır." },
+    { "soru": "Takip görüşmeleri ne sıklıkla yapılıyor?", "cevap": "Genellikle iki ila dört haftada bir yapılır. Sıklık, ihtiyaçlarınıza ve plana uyum sürecinize göre birlikte belirlenir." },
+    { "soru": "Kronik bir hastalığım var, danışmanlık alabilir miyim?", "cevap": "Evet. Beslenme planı, hekiminizin önerdiği tedaviyi destekleyecek şekilde hazırlanır; ilaç tedavinizde değişiklik yapılmaz." },
+    { "soru": "Randevumu nasıl iptal edebilir ya da erteleyebilirim?", "cevap": "Randevunuzdan en az 24 saat önce WhatsApp veya telefonla haber vermeniz yeterlidir." }
+  ]
+}

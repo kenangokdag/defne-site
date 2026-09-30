@@ -1,0 +1,5 @@
+---
+permalink: /arama.json
+eleventyExcludeFromCollections: true
+---
+[{% for y in collections.yazilar %}{"b":{{ y.data.title | json | safe }},"o":{{ y.data.ozet | json | safe }},"k":{{ y.data.kategori | json | safe }},"u":"{{ y.url | url }}","m":{{ y.content | striptags | truncate(3000) | json | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]

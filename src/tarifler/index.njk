@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Tarifler
+ozet: Akdeniz mutfağından ilham alan, mevsim ürünleriyle hazırlanan pratik ve dengeli tarifler.
+permalink: /tarifler/
+---
+<section class="sayfa-bas kap">
+  <h1>Tarifler</h1>
+  <p class="sayfa-bas__giris">Mevsim ürünleriyle hazırlanan, günlük mutfağa kolayca uyarlanabilecek tarifler.</p>
+</section>
+<section class="kap">
+  <div class="kartlar">{% for t in collections.tarifler %}{% include "kart-tarif.njk" %}{% endfor %}</div>
+</section>

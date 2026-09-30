@@ -1,0 +1,28 @@
+---
+layout: base.njk
+pagination:
+  data: kategoriler
+  size: 1
+  alias: konu
+permalink: "/blog/konu/{{ konu | trSlug }}/"
+eleventyComputed:
+  noindex: "{% if (collections.yazilar | ayniKategori(konu) | length) == 0 %}evet{% endif %}"
+  title: "{{ konu }}"
+  ozet: "{{ konu }} konusunda kaynak gösterilen, bilgilendirici beslenme yazıları."
+---
+{% set liste = collections.yazilar | ayniKategori(konu) %}
+<section class="sayfa-bas kap">
+  <p class="yazi__yol"><a href="/blog/">Blog</a></p>
+  <h1>{{ konu }}</h1>
+  <p class="sayfa-bas__giris">{{ liste.length }} yazı</p>
+</section>
+<section class="kap">
+  {% set aktifKonu = konu %}{% include "konu-menu.njk" %}
+  <div data-arama-hedef>
+    {% if liste.length %}
+    <div class="kartlar">{% for y in liste %}{% include "kart-yazi.njk" %}{% endfor %}</div>
+    {% else %}
+    <p class="bos-mesaj">Bu konuda henüz yazı yok. <a href="/blog/">Tüm yazılara</a> göz atabilirsiniz.</p>
+    {% endif %}
+  </div>
+</section>

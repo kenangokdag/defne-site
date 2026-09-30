@@ -1,0 +1,13 @@
+<svg class="incir" viewBox="0 0 400 520" role="img" aria-label="Ortadan ikiye kesilmiş incir çizimi">
+  <defs>
+    <radialGradient id="ic" cx="50%" cy="58%" r="55%"><stop offset="0" stop-color="#F3DCD4"/><stop offset=".55" stop-color="#D9969A"/><stop offset="1" stop-color="#9E4A5E"/></radialGradient>
+  </defs>
+  <path d="M200 40c14 0 22 10 22 26 0 22 18 44 60 92 44 50 78 104 78 176 0 108-72 170-160 170S40 442 40 334c0-72 34-126 78-176 42-48 60-70 60-92 0-16 8-26 22-26Z" fill="#3B2433"/>
+  <path d="M200 70c6 0 9 6 9 16 0 24 20 50 58 94 38 44 68 94 68 154 0 90-60 142-135 142S65 424 65 334c0-60 30-110 68-154 38-44 58-70 58-94 0-10 3-16 9-16Z" fill="#E9D6C4"/>
+  <path d="M200 110c20 40 50 70 80 110 26 34 38 70 38 114 0 70-50 112-118 112S82 404 82 334c0-44 12-80 38-114 30-40 60-70 80-110Z" fill="url(#ic)"/>
+  <g fill="#F6EDE6" opacity=".85">
+    {% set tohum = [[200,200],[176,236],[224,236],[160,280],[240,280],[200,262],[182,316],[218,316],[148,330],[252,330],[200,350],[170,372],[230,372],[200,398],[140,300],[260,300],[186,420],[214,420]] %}
+    {% for t in tohum %}<ellipse cx="{{ t[0] }}" cy="{{ t[1] }}" rx="4.5" ry="7" transform="rotate({{ (t[0]-200)/2 }} {{ t[0] }} {{ t[1] }})"/>{% endfor %}
+  </g>
+  <path d="M200 40c0-16 4-30 14-38" stroke="#5F6B4E" stroke-width="7" stroke-linecap="round" fill="none"/>
+</svg>
